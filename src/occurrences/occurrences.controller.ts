@@ -15,6 +15,8 @@ export class OccurrencesController {
   // Endpoint para criar uma nova ocorrência e enviá-la ao Kafka
   @Post('send')
   async createOccurrence(@Body() createOccurrenceDto: CreateOccurrenceDto) {
-    return this.occurrencesService.createSaveAndSendToSocketIO(createOccurrenceDto);
+    return this.occurrencesService.createSaveAndSendToSocketIO(
+      createOccurrenceDto,
+    );
   }
 }

@@ -20,10 +20,6 @@ export class SocketGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   async handleConnection(client: Socket) {
     console.log('Client connected:', client.id);
-
-    // Carrega todas as ocorrências do banco de dados PostgreSQL
-    const occurrences = await this.occurrencesService.getAllOccurrences();
-    client.emit('loadOccurrences', occurrences);
   }
 
   handleDisconnect(client: Socket) {

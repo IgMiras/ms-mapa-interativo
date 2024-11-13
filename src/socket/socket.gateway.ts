@@ -8,7 +8,7 @@ import { Server, Socket } from 'socket.io';
 import { OccurrencesService } from '../occurrences/occurrences.service';
 import { forwardRef, Inject } from '@nestjs/common';
 
-@WebSocketGateway()
+@WebSocketGateway({ cors: true })
 export class SocketGateway implements OnGatewayConnection, OnGatewayDisconnect {
   @WebSocketServer()
   server: Server;

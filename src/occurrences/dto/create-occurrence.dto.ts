@@ -1,20 +1,30 @@
-import { IsNotEmpty, IsString, IsObject, IsNumber } from 'class-validator';
+import { IsNotEmpty, IsObject, IsNumber, IsEnum } from 'class-validator';
 
 export class Coordinates {
   @IsNotEmpty()
   @IsNumber()
-  lat: number;  // Latitude da ocorrência
+  lat: number; // Latitude da ocorrência
 
   @IsNotEmpty()
   @IsNumber()
-  lng: number;  // Longitude da ocorrência
+  lng: number; // Longitude da ocorrência
+}
+
+export enum OccurrenceType {
+  CONSTRUCTION = 'construction',
+  ACCIDENT = 'accident',
+  CHECKPOINT = 'checkpoint',
+  FIRE = 'fire',
+  PROTEST = 'protest',
+  NOWATER = 'nowater',
+  NOPOWER = 'nopower',
+  THEFT = 'theft',
 }
 
 export class CreateOccurrenceDto {
-  
   @IsNotEmpty()
-  @IsString()
-  type: string;  // Tipo da ocorrência (ex.: obras, acidente, etc.)
+  @IsEnum(OccurrenceType)
+  type: OccurrenceType; // Tipo da ocorrência (ex.: obras, acidente, etc.)
 
   @IsNotEmpty()
   @IsObject()

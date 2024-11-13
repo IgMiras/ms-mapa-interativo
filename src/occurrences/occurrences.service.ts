@@ -23,9 +23,11 @@ export class OccurrencesService {
       this.socketGateway.broadcastNewOccurrence(occurrence);
 
       return occurrence;
-      
     } catch (error) {
-      console.error('Error creating, saving, or broadcasting occurrence:', error);
+      console.error(
+        'Error creating, saving, or broadcasting occurrence:',
+        error,
+      );
       throw new Error('Failed to create, save, or broadcast occurrence');
     }
   }
@@ -34,5 +36,4 @@ export class OccurrencesService {
     // Retorna todas as ocorrências do banco de dados
     return await this.occurrencesRepository.find();
   }
-
 }

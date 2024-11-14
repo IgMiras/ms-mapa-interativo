@@ -1,4 +1,10 @@
-import { IsNotEmpty, IsObject, IsNumber, IsEnum } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsObject,
+  IsNumber,
+  IsEnum,
+  IsString,
+} from 'class-validator';
 
 export class Coordinates {
   @IsNotEmpty()
@@ -29,4 +35,7 @@ export class CreateOccurrenceDto {
   @IsNotEmpty()
   @IsObject()
   coordinates: Coordinates;
+
+  @IsString()
+  description: string; // Descrição da ocorrência
 }

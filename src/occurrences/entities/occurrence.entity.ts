@@ -14,6 +14,9 @@ export class Occurrence {
     lng: number;
   };
 
+  @Column({ type: 'varchar', default: '' })
+  description: string;
+
   @Column({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: Date;
 }
